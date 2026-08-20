@@ -34,6 +34,12 @@ jobs:
         run: |
           python -m playwright install --with-deps
 
+      - name: Create credentials file
+        env:
+          TEST_CREDENTIALS_JSON: ${{ secrets.TEST_CREDENTIALS_JSON }}
+        run: |
+          printf '%s' "$TEST_CREDENTIALS_JSON" > data/credentials.json
+
       - name: Run Playwright tests
         run: |
           pytest
