@@ -21,6 +21,11 @@ jobs:
         with:
           python-version: '3.13'
 
+      - name: Check Python
+        run: |
+          python --version
+          python -m pip --version
+
       - name: Check repository
         run: |
           pwd
