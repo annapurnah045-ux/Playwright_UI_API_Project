@@ -40,9 +40,26 @@ jobs:
         run: |
           printf '%s' "$TEST_CREDENTIALS_JSON" > data/credentials.json
 
+#      - name: Run Playwright tests
+#        run: |
+#          pytest
+#
+#      - name: Check repository
+#        run: |
+#          pwd
+#          ls -la
+
+# For Allure reports
       - name: Run Playwright tests
         run: |
-          pytest
+          pytest --alluredir=reports/allure-results
+
+      - name: Upload Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: reports/allure-results
 
       - name: Check repository
         run: |

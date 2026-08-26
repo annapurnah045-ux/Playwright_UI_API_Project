@@ -20,3 +20,9 @@ data/credentials.json
 
 # macOS
 .DS_Store
+
+# Allure reports
+reports/
+
+# Execution logs
+logs/
