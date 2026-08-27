@@ -106,6 +106,7 @@ jobs:
           echo "Allure HTML report:"
           ls -la reports/allure-report || true
   deploy:
+    if: always()
     needs: test
     runs-on: ubuntu-latest
 
