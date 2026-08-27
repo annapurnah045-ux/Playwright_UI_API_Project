@@ -12,8 +12,8 @@ def test_api_intercept_request(page:Page):
     page.get_by_role("button", name="Login").click()
     page.get_by_role("button", name="ORDERS").click()
     page.get_by_role("button", name="View").first.click()
-    message = page.locator(".blink_me").text_content()
-    print(message)
-    time.sleep(3)
+    # message = page.locator(".blink_me").text_content()
+    # print(message)
+    # time.sleep(3)
 
 
