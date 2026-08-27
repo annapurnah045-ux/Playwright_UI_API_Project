@@ -84,6 +84,12 @@ jobs:
         run: |
           allure generate reports/allure-results -o reports/allure-report --clean
 
+      - name: Upload Pages artifact
+        if: always()
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: reports/allure-report
+
 
 #      - name: Check repository
 #        run: |
