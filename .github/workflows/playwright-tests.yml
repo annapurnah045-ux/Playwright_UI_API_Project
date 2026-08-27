@@ -74,7 +74,23 @@ jobs:
           name: allure-results
           path: reports/allure-results
 
-      - name: Check repository
+      - name: Generate Allure HTML report
+        if: always()
+        run: |
+          allure generate reports/allure-results -o reports/allure-report --clean
+
+
+#      - name: Check repository
+#        run: |
+#          pwd
+#          ls -la
+
+      - name: Check generated reports
+        if: always()
         run: |
           pwd
           ls -la
+          echo "Allure results:"
+          ls -la reports/allure-results || true
+          echo "Allure HTML report:"
+          ls -la reports/allure-report || true
