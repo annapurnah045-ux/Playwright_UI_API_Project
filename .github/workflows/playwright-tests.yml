@@ -105,3 +105,15 @@ jobs:
           ls -la reports/allure-results || true
           echo "Allure HTML report:"
           ls -la reports/allure-report || true
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
