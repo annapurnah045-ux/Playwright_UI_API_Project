@@ -1,7 +1,8 @@
-
+import pytest
 from playwright.sync_api import Page
 from playwright.sync_api import expect
 import time
+
 
 def test_addItemsToCart(page:Page):
      page.goto("https://rahulshettyacademy.com/loginpagePractise/")
